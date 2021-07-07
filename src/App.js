@@ -5,6 +5,7 @@ import Nav from './components/Nav'
 import Blogs from './components/Blogs'
 import CreatePost from './components/CreatePost';
 import BlogPost from './components/BlogPost'
+import SignUp from './components/SignUp'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/" component={Blogs} />
+        <Route exact path="/signup" component={SignUp} />
         <Route 
           path="/blog/:id" 
           render={(routerProps) => <BlogPost match={routerProps.match}/>}

@@ -26,9 +26,11 @@ const BlogPost = ( {match} ) => {
     return (
 
         <div className="blog-post">
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            <h4>{post.date}</h4>
+            <div className="post-border">
+                <h3>{post.title}</h3>
+                <p>{post.body}</p>
+                <h4>{post.date}</h4>
+            </div>
             <button>edit</button>
             <button>delete</button>
         </div>

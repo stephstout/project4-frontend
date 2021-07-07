@@ -15,6 +15,12 @@ ul {
   margin: auto;
 }
 
+h3 {
+  text-decoration: underline;
+  letter-spacing: 0.05em;
+  font-family: 'PT Mono', monospace;
+}
+
 li {
   list-style: none;
   display: inline;
@@ -47,15 +53,17 @@ h1 {
   width: 600px;
   height: 300px;
   padding: 10px;
-  border: 1px dotted black;
-  margin: 4px;
+  border: 1px dotted #BFEB79;
+  margin: 8px auto;
 }
 
 img {
   display: flex;
-  max-width: 300px;
+  max-width: 600px;
   margin: auto;
 }
+
+
 
 a {
  color: white;
@@ -64,6 +72,11 @@ a {
 
 a:hover {
   color: #BFEB79;
+}
+
+.signup-text {
+  margin: auto;
+  padding: 5px;
 }
 
 form {
@@ -77,6 +90,7 @@ form {
 
 label {
   padding: 4px;
+  margin: auto;
 }
 
 .blog-post {
@@ -85,14 +99,32 @@ label {
   margin: auto;
 }
 
+.post-border {
+  border: 1px dotted #BFEB79;
+  padding: 10px;
+  margin: 5px auto;
+}
+
+span {
+  color: #9B6A6C;
+}
+
+span:hover {
+  color: BFEB79;
+}
+
 button {
   border: none;
   padding: 10px;
-  margin: 10px;
+  margin: 5px auto;
   width: 150px;
   background-color: #1B9AAA;
   color: white;
   font-size: 16px;
+}
+
+input {
+  padding: 5px;
 }
 
 .submit-button:hover {
@@ -107,7 +139,7 @@ button {
   color: #1B9AAA;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .container {
       display: grid;
       grid-template-rows: 150px 3fr;
@@ -120,7 +152,7 @@ button {
   }
 
   .nav {
-      padding: 5px;
+    padding: 5px;
   }
 
   ul {
@@ -133,5 +165,10 @@ button {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+  }
+
+  .blog-posts {
+    border: none;
+    margin: 4px;
   }
 }

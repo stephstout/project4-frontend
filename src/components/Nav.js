@@ -9,11 +9,11 @@ const Nav = () => {
                 <h1>steph codes and stuff</h1>
             </Link>
             <ul>
-                {/* <Link to="/signup"> */}
+                <Link to="/signup">
                 <li>
                     <BiUser size="2em"/>
                 </li>
-                {/* </Link> */}
+                </Link>
                 <li>
                     <BiSearch size="2em"/>
                 </li>
