@@ -26,27 +26,17 @@ const SignUp = () => {
 		setUser({ ...user, [event.target.id]: event.target.value });
 	};
 
-	// let history = useHistory();
-
-	// const handleSignUp = (event) => {
-	// 	event.preventDefault();
-	// 	if (user.password === user.confirm) {
-	// 		SignUp(user, setError);
-	// 		history.push('/signin');
-	// 	} else {
-	// 		setError(true);
-	// 	}
-	// };
-
 	return (
 		<div className='form'>
 			<form onSubmit={postSignUp}>
+				<label htmlFor='username'>username:</label>
+				<input id='username' type='text' onChange={handleChange} />
 				<label htmlFor='email'>email:</label>
 				<input id='email' type='text' onChange={handleChange} />
 				<label htmlFor='password'>password:</label>
 				<input id='password' type='text' onChange={handleChange} />
 				<label htmlFor='Confirm password'>confirm password:</label>
-				<input id='confirm' onChange={handleChange} type='text' />
+				<input id='re_password' onChange={handleChange} type='text' />
 				<button type='submit' className='submit-button'>
 					submit
 				</button>
