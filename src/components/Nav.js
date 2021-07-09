@@ -14,6 +14,11 @@ const Nav = () => {
                     <BiUser size="2em"/>
                 </li>
                 </Link>
+                <Link to="/login">
+                <li>
+                    <BiUser size="2em"/>
+                </li>
+                </Link>
                 <li>
                     <BiSearch size="2em"/>
                 </li>

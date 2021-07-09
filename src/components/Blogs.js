@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { FaComments } from 'react-icons/fa'
+import SignUp from './SignUp';
 
 
 const Blogs = () => {
@@ -12,9 +13,9 @@ const Blogs = () => {
         axios(
         {
             method: 'GET',
-            url: 'http://localhost:8000/posts/',
+            url: 'https://steph-codes-blog.herokuapp.com/posts/',
             headers: {
-                'Authorization': 'Token f35dfde8e8a147440644b6519ea63483b941d717',
+                'Authorization': `Token ${localStorage.getItem('token')}`,
             },
             data: blogs
         })
@@ -23,7 +24,7 @@ const Blogs = () => {
     }, [])
 
     if (!blogs) {
-        return "loading"
+        return <SignUp />
     }
     
     return (

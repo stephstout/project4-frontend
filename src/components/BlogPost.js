@@ -1,23 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+// import EditPost from './EditPost';
 
 const BlogPost = ( {match} ) => {
-
+    const history = useHistory()
     const [post, setPost] = useState()
 
     useEffect(() => {
         axios(
         {
             method: 'GET',
-            url: `http://localhost:8000/posts/${match.params.id}`,
+            url: `https://steph-codes-blog.herokuapp.com/posts/${match.params.id}`,
             headers: {
-                'Authorization': 'Token f35dfde8e8a147440644b6519ea63483b941d717',
+                'Authorization': `Token ${localStorage.getItem('token')}`,
             },
             data: post
         })
         .then((res) => setPost(res.data))
         .catch(console.error)
     }, [])
+
+    const deletePost = () => {
+        axios(
+            {
+                method: 'DELETE',
+                url: `https://steph-codes-blog.herokuapp.com/posts/${match.params.id}`,
+                headers: {
+                    'Authorization': `Token ${localStorage.getItem('token')}`,
+                }
+            }
+        )
+        .then(() => {
+            history.push('/')
+        })
+    }
 
     if (!post) {
         return "loading"
@@ -31,8 +49,8 @@ const BlogPost = ( {match} ) => {
                 <p>{post.body}</p>
                 <h4>{post.date}</h4>
             </div>
-            <button>edit</button>
-            <button>delete</button>
+            <button className="submit-button"><Link to={`/editpost/${match.params.id}`}>edit</Link></button>
+            <button className="submit-button" onClick={deletePost}>delete</button>
         </div>
     );
 };

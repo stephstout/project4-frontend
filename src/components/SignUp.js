@@ -51,7 +51,7 @@ const SignUp = () => {
 				</button>
 				<p className="signup-text">
 					already have an account? sign in{' '}
-					<Link to='/signin'>
+					<Link to='/login'>
 						<span>here</span>
 					</Link>
 					.

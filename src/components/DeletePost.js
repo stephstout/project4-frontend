@@ -1,35 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
-const EditPost = ( {match} ) => {
-    const [editPost, setEditPost] = useState({ title: '', date: '', body: '' })
-    const history = useHistory()
+const DeletePost = ( {match} ) => {
+    // const initialState = {  }
+    const [editPost, setEditPost] = useState()
+
     const handleChange = (e) => {
-        setEditPost({...editPost, [e.target.id]: e.target.value})
+        setEditPost({editPost, [e.target.id]: e.target.value})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         axios(
             {
-                method: 'PUT',
-                url: `https://steph-codes-blog.herokuapp.com/posts/${match.params.id}`,
+                method: 'DELETE',
+                url: `https://steph-codes-blog.herokuapp.com/${match.params.id}`,
                 headers: {
-                    'Authorization': `Token ${localStorage.getItem('token')}`,
+                    'Authorization': `Token ${localStorage.getItem('token')}`
                 },
                 data: editPost
             })
-            .then(res => {
-                history.push('/')
-            })
+            .then(res => setEditPost(res.data))
             .catch(console.error)
         }
+        
 
 
     return (
         <div>
-            <form className="edit-post" onSubmit={handleSubmit}>
+            <form className="delete-post">
                 <label htmlFor="title">title:</label>
                 <input 
                 id="title"
@@ -48,10 +47,10 @@ const EditPost = ( {match} ) => {
                 type="text"
                 onChange={handleChange}
                 />
-            <button className="submit-button">edit post</button>
+            <button className="submit-button" onSubmit={handleSubmit}>delete post</button>
             </form>
         </div>
     );
 };
 
-export default EditPost;
+export default DeletePost;

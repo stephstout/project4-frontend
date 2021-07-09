@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 const CreatePost = () => {
     const initialState = { title: '', date: '', body: '' }
     const [post, setPost] = useState(initialState)
+    const history = useHistory()
+
 
     const handleChange = (e) => {
         setPost({...post, [e.target.id]: e.target.value})
@@ -14,13 +17,15 @@ const CreatePost = () => {
         axios(
         { 
             method: 'POST',
-            url: 'http://localhost:8000/posts/',
+            url: 'https://steph-codes-blog.herokuapp.com/posts/',
             headers: {
-                'Authorization': 'Token f35dfde8e8a147440644b6519ea63483b941d717',
+                'Authorization': `Token ${localStorage.getItem('token')}`,
             },
             data: post
         })
-        .then(console.log)
+        .then(() => {
+            history.push('/')
+        })
         .catch(console.error)
     }
 
