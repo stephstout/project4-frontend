@@ -7,7 +7,8 @@ const SignUp = () => {
 	const [error, setError] = useState(false);
     const [user, setUser] = useState()
 
-    const postSignUp = () => {
+    const postSignUp = (event) => {
+		event.preventDefault()
         const url = `https://steph-codes-blog.herokuapp.com/users/`;
         fetch(url, {
             method: 'POST',
