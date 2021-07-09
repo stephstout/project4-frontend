@@ -16,7 +16,7 @@ const LoginForm = ({ setUser }) => {
 	//Sending user email and password to database, and awaiting return of token.  Setting the token to local storage and the user id to the activeUser state to allow access to components.
 	const handleSignIn = (event) => {
 		event.preventDefault();
-        const url = `https://steph-codes-blog.herokuapp.com/token/login`;
+        const url = `https://steph-codes-blog.herokuapp.com/token/login/`;
         fetch(url, {
             method: 'POST',
             headers: {
